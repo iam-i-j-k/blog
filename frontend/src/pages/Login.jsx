@@ -17,7 +17,7 @@ function Login() {
     setError("")
 
     try {
-      const { data } = await axios.post(`${import.meta.process.env.BACKEND_URL}/api/auth/login`, { email, password })
+      const { data } = await axios.post(`${import.meta.env.BACKEND_URL}/api/auth/login`, { email, password })
       localStorage.setItem("token", data.token)
       navigate("/dashboard")
     } catch (err) {

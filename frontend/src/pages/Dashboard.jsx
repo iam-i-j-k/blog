@@ -15,7 +15,7 @@ function Dashboard() {
     const fetchBlogs = async () => {
       try {
         setIsLoading(true)
-        const res = await axios.get(`${import.meta.process.env.BACKEND_URL}/api/blogs`, {
+        const res = await axios.get(`${import.meta.env.BACKEND_URL}/api/blogs`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         setBlogs(res.data)
@@ -33,7 +33,7 @@ function Dashboard() {
   const deleteBlog = async (id) => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
-        await axios.delete(`${import.meta.process.env.BACKEND_URL}/api/blogs/${id}`, {
+        await axios.delete(`${import.meta.env.BACKEND_URL}/api/blogs/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         setBlogs(blogs.filter((blog) => blog._id !== id))
