@@ -14,7 +14,7 @@ function Home() {
   };
 
   useEffect(() => {
-    axios.get(`${import.meta.env.BACKEND_URL}/api/blogs`).then(res => setBlogs(res.data));
+    axios.get("http://localhost:5000/api/blogs").then(res => setBlogs(res.data));
   }, []);
 
   return (
