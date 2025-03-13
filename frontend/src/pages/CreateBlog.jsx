@@ -20,7 +20,7 @@ function CreateBlog() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/blogs",
+        `${import.meta.process.env.BACKEND_URL}/api/blogs`,
         { title, content },
         {
           headers: { Authorization: `Bearer ${token}` },

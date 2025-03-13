@@ -10,7 +10,7 @@ function EditBlog() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/blogs/${id}`, {
+    axios.get(`${import.meta.process.env.BACKEND_URL}/api/blogs/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(res => {
       setTitle(res.data.title);
@@ -20,7 +20,7 @@ function EditBlog() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/api/blogs/${id}`, { title, content }, {
+    await axios.put(`${import.meta.process.env.BACKEND_URL}/api/blogs${id}`, { title, content }, {
       headers: { Authorization: `Bearer ${token}` }
     });
     navigate("/dashboard");

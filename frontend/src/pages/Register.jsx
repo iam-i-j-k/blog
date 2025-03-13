@@ -16,7 +16,7 @@ function Register() {
     e.preventDefault()
     setIsLoading(true)
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post(`${import.meta.process.env.BACKEND_URL}/api/auth/register`, {
         username,
         email,
         password,
